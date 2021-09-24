@@ -1,0 +1,33 @@
+<%- include('ek/header', {bot, user, path}) %>
+
+<br><br><br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<center>
+				<div class="kuckkutu"><i style="color: #fff; font-size: 50px;" class="far fa-check-circle"></i></div>
+			</center>
+		</div>
+		<div class="col-md-12">
+		    <p style="text-align: center; color: #0561ff; font-size: 25px;"> <%= text || "Yazı Bulunamadı" %></p>
+		</div>
+	</div>
+</div>
+
+
+<style>
+
+.kuckkutu {
+       width: 70px;
+       height: 70px;
+       padding: 10px;
+       background: rgb(50, 242, 0);
+       border-radius: 15px;
+       margin: 10px;
+}
+
+</style>
+
+<br><br><br><br><br>
+
+<%- include('ek/footer') %>

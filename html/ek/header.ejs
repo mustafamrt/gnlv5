@@ -1,0 +1,124 @@
+<html>
+  <head>
+    
+      <meta name="description" content="Narcos Code Genel V5 Huzurlarınızla Sunar...">
+
+  <meta name="keyword" content="Narcos Code, Mustafa Mert, Discord Bot, Discord, Narcos Code Genel V5">
+
+  <meta name="author" content="Narcos Code Genel V5">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title><% bot.user.username %></title>
+    <link rel="stylesheet" href="/public/genel.css"/>
+    <link rel="icon" href="https://cdn.discordapp.com/icons/760590308869406751/a_b949627c5492f7b80991e52f4d2f7c9c.gif?size=1024" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/18babed95f.js"></script>
+  </head>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#101320;text-decoration:none;">
+  <a class="navbar-brand" href="#" style="font-family: 'Quicksand', sans-serif"><img src="https://cdn.discordapp.com/icons/760590308869406751/a_b949627c5492f7b80991e52f4d2f7c9c.gif?size=1024" style="border-radius:50%;weight:37px;height:37px"> Narcos Code Genel V5
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/" style="font-family: 'Quicksand', sans-serif"><i style="color: #0561ff;" class="fas fa-home"></i> AnaSayfa</a>
+      </li>
+
+
+ <a class="nav-link" href="/bilgi" style="font-family: 'Quicksand', sans-serif"><i style="color: #0561ff;" class="fas fa-info-circle"></i>  Bilgi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/panel" style="font-family: 'Quicksand', sans-serif"><i style="color: #0561ff;" class="fas fa-meteor"></i>  Panel</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <% if (!user) { %>
+     <a class="btn btn-primary" href="/giris" style="font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"">
+      <i class="fas fa-sign-in-alt"></i> Giriş Yap
+    </a>
+    <% }else{ %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="font-family: 'Quicksand', sans-serif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="<%= bot.kisibul(user.id).avatar %>" style="border-radius:50%;width:30px;height:30px"> <%= user.username%>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink" style="background:#101320;text-color:#7289DA;border-color:rgb(16, 19, 32, 1);font-family: 'Quicksand', sans-serif;">
+          <a class="dropdown-item" href="/profile/<%=user.id%>" style="color:#4c42f8"><i class="fas fa-address-card"></i> Profil</a>
+          <% if(bot.ayarlar.gelistirici.includes(user.id)) { %>
+          <a class="dropdown-item" href="/admin" style="color:#4c42f8"><i class="fas fa-user-shield"></i> Admin Panel</a>
+<% } %>
+          <a class="dropdown-item" href="/cikis" style="color:RED"><i class="fas fa-sign-out-alt"></i> Çıkış yap</a>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
+
+<style>
+.rainbow {
+  text-align: left;
+  font-size: 16px;
+  animation: colorRotate 4s linear 0.1s infinite;
+}
+
+@keyframes colorRotate {
+  from {
+    color: #6666ff;
+  }
+  10% {
+    color: #0099ff;
+  }
+  50% {
+    color: #00ff00;
+  }
+  75% {
+    color: #ff3399;
+  }
+  100% {
+    color: #6666ff;
+  }
+}
+.rainbowicon {
+  text-align: left;
+  font-size: 16px;
+  animation: colorRotate2 4s linear 0.1s infinite;
+}
+
+@keyframes colorRotate2 {
+  from {
+    border: 4px solid #6666ff;
+  }
+  10% {
+    border: 4px solid #0099ff;
+  }
+  50% {
+    border: 4px solid #00ff00;
+  }
+  75% {
+    border: 4px solid #ff3399;
+  }
+  100% {
+     border: 4px solid #6666ff;
+  }
+} 
+
+.bg {
+  background-color:#191d2f;
+  padding: 0;
+}
+ </style>
+<body class="bg">

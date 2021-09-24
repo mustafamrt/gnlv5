@@ -1,0 +1,234 @@
+<%- include('../ek/header', {bot, user, path}) %>
+
+<% let sw = bot.guilds.cache.get(id) %>
+
+<div>
+<center>
+  <img style="margin-top: 80px; border-radius: 150px;" src="<%= bot.guilds.cache.get(id).iconURL() %>">
+  <p style="color: #fff; margin-top: 30px; font-family: 'Quicksand', black; font-size: 30px;"><b><%= bot.guilds.cache.get(id).name %><b></p>
+    <p style="color: #fff; margin-top: 30px; font-family: 'Quicksand'; font-size: 20px;">Ayarlarınızı aşağıdan ayarlıyabilirsinz.</p>
+</center>
+
+<hr style="margin-top: 60px; width: 70%; border-style: solid;color: rgb(151 ,151, 151, 0.3); border-width: 2px; opacity:;" />
+</div>
+<br>
+
+<form method="post" style="color:#fff;">
+<div>
+
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ Yetkili Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">Ban,Kick vb. yetkili rolü ayarlarsın.</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#Ban Yetkilisi" role="button" aria-expanded="false" aria-controls="başvuru" href="#başvuru" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+
+<div class="collapse" id="Ban Yetkilisi">
+   <div class="form-row">
+
+     <div class="form-group col-md-4">
+      <label for="inputState">Ban Yetkili Rolü</label>
+      <select id="başvuruytk-rol" name="ban-rol" class="form-control">
+        <option selected disabled>Ban Yetkilisi Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+     
+     
+          <div class="form-group col-md-4">
+      <label for="inputState">Kick Yetkili Rolü</label>
+      <select id="başvuruytk-rol" name="kick-rol" class="form-control">
+        <option selected disabled>Kick Yetkilisi Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+     
+          <div class="form-group col-md-4">
+      <label for="inputState">UnBan Yetkili Rolü</label>
+      <select id="başvuruytk-rol" name="unban-rol" class="form-control">
+        <option selected disabled>UnBan Yetkilisi Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+
+
+</div>
+
+</div>
+</div>
+  <div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ Mute Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">Mute Ayar Sistemi (Eklenecek)</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#Mute  " role="button" aria-expanded="false" aria-controls="Mute" href="#Mute" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+
+<div class="collapse" id="Mute">
+   <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Mute Kanalı</label>
+   <select id="duyuru-kanal" name="duyuru-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ ModLog Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">ModLog kanalı ayarlarsın</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#ModLog" role="button" aria-expanded="false" aria-controls="Modlog" href="#modlog" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+</div>
+<div class="collapse" id="ModLog">
+   <div class="form-row">
+
+         <div class="form-group col-md-4">
+      <label for="inputState">Mod Log Kanal</label>
+   <select id="mod-log" name="mod-log" class="form-control">
+        <option selected disabled>ModLog  Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+     
+     
+
+
+</div>
+
+</div>
+</div>
+
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ Mute Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">Mute Ayar Sistemi (Eklenecek)</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#Mute  " role="button" aria-expanded="false" aria-controls="Mute" href="#Mute" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+
+<div class="collapse" id="Mute">
+   <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Mute Kanalı</label>
+   <select id="duyuru-kanal" name="duyuru-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+  </div>
+</div>
+</div>
+
+
+</div>
+  
+  </div>
+   <button type="submit" id="testbutton"></button>
+<br>
+
+
+
+</form>
+<br>
+
+<style>
+
+#testbutton {
+  width: 150px;
+  height:50px;
+  border-radius:180px;
+  position:relative;
+  left:calc(50% - 75px);
+  top:calc(10% - 25px);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  cursor:pointer;
+  line-height:12px;
+}
+
+#testbutton:before {
+  content:'';
+  z-index:1;
+  position:absolute;
+  display:block;
+  width:80%;
+  height:70%;
+  top:15%;
+  left:10%;
+  transition: 0.3s opacity ease-in-out;
+  filter:blur(15px);
+  opacity:0;
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+}
+
+#testbutton:hover:before {
+  opacity:1;
+  transition: 0.3s opacity ease-in-out;
+  filter:blur(25px);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);  
+}
+
+#testbutton:after {
+  content:'Kaydet';
+  text-align:center;
+  line-height:40px;
+  font-size:18px;
+  color:rgba(235,235,235,1);
+  font-weight:bold;
+  z-index:5;
+  position:absolute;
+  display:block;
+  border-radius:180px;
+  width:92%;
+  height:80%;
+  top:10%;
+  left:4%;  
+}
+
+.night  { position: relative; 
+	        background:linear-gradient( to bottom right,rgba(63,81,181,1) 0%, rgba(171,71,188 ,1) 70%);
+	        box-shadow: 1px 1px 30px rgba(81,45,168 ,1);}
+
+
+.div     { width: 200px; height: 44px; border-radius: 6px; }
+
+.hot    { position: relative; 
+	        background:linear-gradient( to top right, rgb(39,42,246) 0%, rgb(39,42,246) 100%);.
+</style>
+
+<%- include('.././ek/footer.ejs') %>

@@ -1,0 +1,49 @@
+
+
+
+<%- include('ek/header.ejs', {bot, user, path}) %>
+    <center>
+
+<div class="container" style="align: center;">
+  <div class="row justify-content-center align-items-center" >
+    <div class="col-md-4">
+      <div class="kutu">
+        <h3 style=" color: #ff0000;  font-size: 35px;">
+				<b><strong> Kullanıcı <br> <%= bot.stats().userSize || 0 %></strong> </b>
+				</h3>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="kutu">
+        <h3 style=" color: #ff0000;  font-size: 35px;">
+				<b><strong> Sunucu <br> <%= bot.stats().serverSize || 0 %></strong> </b>
+				</h3>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="kutu">
+        <h3 style=" color: #ff0000;  font-size: 35px;">
+				<b><strong> Kanal <br> <%= bot.stats().channelSize || 0 %></strong> </b>
+				</h3>
+      </div>
+    </div>
+  </div>
+</div>
+    </center>
+
+<br><br><br><br><br>
+
+<style>
+
+.kutu {
+       width: 320px;
+      float:left;
+       height: 150px;
+       padding: 10px;
+       background: rgba(131, 0, 255, 0.5);
+       border-radius: 15px;
+       margin: 10px;
+      align: center;
+}
+
+</style>

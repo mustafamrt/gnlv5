@@ -1,0 +1,79 @@
+<%- include('../ek/header', {bot, user, path}) %>
+
+<div>
+<center>
+  <img style="margin-top: 80px; border-radius: 150px;" src="<%= bot.guilds.cache.get(id).iconURL() %>">
+  <p style="color: #fff; margin-top: 30px; font-family: 'Quicksand', black; font-size: 30px;"><b><%= bot.guilds.cache.get(id).name %><b></p>
+    <p style="color: #fff; margin-top: 30px; font-family: 'Quicksand'; font-size: 20px;">Botta hangi özelliği ayarlıyacaksanız aşağıdan seçiniz.</p>
+</center>
+
+<hr style="margin-top: 60px; width: 70%; border-style: solid;color: rgb(151 ,151, 151, 0.3); border-width: 2px; opacity:;" />
+</div>
+  
+  
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+           <p style="color: #0561ff; margin-top: 80px; m font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-terminal"></i>
+         Ayarlanabilir komutlar</p> <p style="color: #fff; margin-top: -20px;  font-family: 'Quicksand'; font-size: 20px;">Sunucunuzda ayarliyabileceğiniz komutları burda kolayca ayarla!</p>
+      </div>
+      <div class="col-md-6">
+        <a href="/yonetim/<%= id %>/ayar" type="button" style="margin-top: 40px; margin-left: 100px; text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+      </div>
+    </div>
+  </div>
+ 
+  
+  </div>
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+           <p style="color: #0561ff; margin-top: 80px; m font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-terminal"></i>
+         Guard Ayarlama</p> <p style="color: #fff; margin-top: -20px;  font-family: 'Quicksand'; font-size: 20px;">Sunucunuzda Guard Sistemlerini burada kolayca ayarla!</p>
+      </div>
+      <div class="col-md-6">
+        <a href="/yonetim/<%= id %>/guard" type="button" style="margin-top: 40px; margin-left: 100px; text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+           <p style="color: #0561ff; margin-top: 80px; m font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-terminal"></i>
+         Moderasyon Ayarlama</p> <p style="color: #fff; margin-top: -20px;  font-family: 'Quicksand'; font-size: 20px;">Sunucunuzda Moderasyon Sistemlerini burada kolayca ayarla!</p>
+      </div>
+      <div class="col-md-6">
+        <a href="/yonetim/<%= id %>/moderasyon" type="button" style="margin-top: 40px; margin-left: 100px; text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+      </div>
+    </div>
+  </div>
+
+
+  
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+         <p style="color: #0561ff; margin-top: 80px;  font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-filter"></i>
+         Filtre komutlar</p> <p style="color: #fff; margin-top: -20px;  font-family: 'Quicksand'; font-size: 20px;">Sunucunuzda sohbet düzenini sağlıyacak komutlar!</p>
+      </div>
+      <div class="col-md-6">
+        <a href="/yonetim/<%= id %>/filtre" type="button" style="margin-top: 40px; margin-left: 100px; text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+<style>
+.div     { width: 200px; height: 44px; border-radius: 6px; }
+
+.hot    { position: relative; 
+	        background:linear-gradient( to top right, rgb(39,42,246) 0%, rgb(39,42,246)100%);.
+</style>
+
+<%- include('../ek/footer') %>

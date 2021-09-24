@@ -1,0 +1,48 @@
+
+<%- include("./ek/header.ejs", {bot, path, user}) %>
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-12">
+      <center>
+      <br> <br><img src="<%= userr.avatar %>" style="border-radius:50%;">
+        <p style="color: #00ff8b; font-family: 'Quicksand', black; font-size: 35px;"> <%= userr.name%> </p>
+      </center>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 kutu">
+      <center>
+        <p style="color: #fff; font-family: 'Quicksand', black; font-size: 28px;"><i class="fas fa-medal"></i> Rozetler <i class="fas fa-medal"></i></p>
+        <p style="color: #fff; font-family: 'Quicksand', black; font-size: 28px;">xx</p>    
+  </center>
+    </div>
+    <div class="col-md-12 kutu">
+      <center>
+        <p style="color: #fff; font-family: 'Quicksand', black; font-size: 28px;"><i class="fas fa-coins"></i> Gold Üye <i class="fas fa-coins"></i></p>
+        <p style="color: #fff; font-family: 'Quicksand', black; font-size: 28px;"><%- vip %></p> 
+      </center>
+    </div>
+    <div class="col-md-12 kutu">
+      <center>
+        <p style="color: #fff; font-family: 'Quicksand', black; font-size: 28px;"><i class="fas fa-table"></i> Discord Kayıt <i class="fas fa-table"></i></p>
+        <p style="color: #fff; font-family: 'Quicksand', black; font-size: 28px;">xx</p> 
+      </center>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+.kutu {
+       min-width: 300px;
+       max-width: 350px;
+       height: 150px;
+       padding: 10px;
+       background: rgba(0,0,0, 0.3);
+       border-radius: 15px;
+       margin: 10px;
+}
+</style>
+<%- include('ek/footer') %>

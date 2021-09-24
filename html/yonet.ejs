@@ -1,0 +1,105 @@
+<%- include('ek/header', {bot, user, path}) %>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+
+<center>
+
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class"col-md-12">
+         <br><br> <img style=" border-radius: 300px;" src="https://cdn.discordapp.com/icons/760590308869406751/a_b949627c5492f7b80991e52f4d2f7c9c.gif?size=1024">
+      </div>
+      <div class="col-md-12">
+          <h3 class="anasyfa-txt" style="color: #0561ff; margin-top: 30px; font-family: 'Quicksand', black; font-size: 30px;">
+         <b> Narcos Code Genel V5</b>
+         </h3>
+      </div>
+      <div class="col-md-12">
+          <p style="color: #fff; margin-top: 30px; font-family: 'Quicksand', black; font-size: 20px;">
+          Sunucu yönetim paneli
+          </p> <br>
+        <hr style="width: 70%; border-style: solid;color: #979797; border-width: 2px; opacity:;" />
+      </div>
+    </div>
+    <div class="row">
+   <% user.guilds.forEach(guild => {
+    const permsOnGuild = new perms(guild.permissions);
+    if(!permsOnGuild.has("MANAGE_GUILD")) return;
+  %>
+   <% if (bot.guilds.cache.get(guild.id)) { %>
+    <% var a = "Sunucuyu Yönet" %>
+ 
+    <% } else { %>
+        <% var a = "Sunucuya Ekle" %>
+ 
+    <% } %>
+        <% if (bot.guilds.cache.get(guild.id)) { %>
+    <% var link = `/yonet?server=${guild.id}` %>
+    <% } else { %>    
+    <% var link = `https://discord.com/oauth2/authorize?scope=bot&response_type=code&redirect_uri=${bot.ayarlar.callbackURL}&permissions=8&client_id=${bot.user.id}&guild_id=${guild.id}` %>
+    <% } %>
+   <div class="col-md-4" style="float: right;">
+        <div class="borderss">
+   <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png?size=128" style="margin-top: 20px; margin-left: 20px; width:104px;height:104px;border-radius: 150px;" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/attachments/800474052509827082/807338869292269638/discord_101785.png'" alt="icon" class="w3-left w3-circle">
+       <br>    <p  style="color:#ff4100; font-size: 18px; margin-right: 12px;"> <b> <%= bot.tools.kisalt(guild.name) %> </b></p>
+  <a class="anasyfa-btyk" style="font-size: 16px; color:#ff7e00">
+     <% if (bot.guilds.cache.get(guild.id)) { %>
+     Bot sunucuda var.
+    <% } else { %>
+     Bot sunucuda yok.
+      <% } %></a> <br> <br> 
+<a href="<%=link%>" type="btn btn-info" style="text-align: center;  font-family: 'Quicksand', black;  color: #fff;" class="btn btn-info"><%= a %></a>
+
+   </div>
+      </div>
+  <% }) %>
+    </div>
+</center>
+
+
+<style>
+
+.anasyfa-txt {
+  	text-shadow:
+    0 0 5px #0561ff,
+    0 0 10px #0561ff;
+}
+
+.anasyfa-btyk {
+  	text-shadow:
+    0 0 5px #ff7e00,
+    0 0 10px #ff7e00;
+}
+
+
+.borderss
+{
+min-width: 300px;
+max-width: 350px;
+height:180px;
+border-radius: 30px;
+margin-left:15px;
+margin-top: 20px;
+background-image: url("https://cdn.discordapp.com/attachments/875119709002023004/881894811437768724/unnamed.gif");
+    position: relative;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -moz-transform: scale(1);
+    transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -ms-transition: all .2s ease-in;
+}
+
+.border:hover
+{
+    z-index:4;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);  
+    -moz-transform: scale(1.1);
+    transform: scale(1.1);
+}
+  
+</style>
+<%- include('ek/footer') %>
+</div>
+</body>
