@@ -1,0 +1,521 @@
+<%- include('../ek/header', {bot, user, path}) %>
+
+<% let sw = bot.guilds.cache.get(id) %>
+
+<div>
+<center>
+  <img style="margin-top: 80px; border-radius: 150px;" src="<%= bot.guilds.cache.get(id).iconURL() %>">
+  <p style="color: #fff; margin-top: 30px; font-family: 'Quicksand', black; font-size: 30px;"><b><%= bot.guilds.cache.get(id).name %><b></p>
+    <p style="color: #fff; margin-top: 30px; font-family: 'Quicksand'; font-size: 20px;">Ayarlarınızı aşağıdan ayarlıyabilirsinz.</p>
+</center>
+
+<hr style="margin-top: 60px; width: 70%; border-style: solid;color: rgb(151 ,151, 151, 0.3); border-width: 2px; opacity:;" />
+</div>
+<br>
+
+<form method="post" style="color:#fff;">
+<div>
+
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ başvuru Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">başvuru sunucunuza girenlere otomatik olarak rol verir.</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#Başvuru" role="button" aria-expanded="false" aria-controls="başvuru" href="#başvuru" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+<div class="collapse" id="Başvuru">
+   <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputState">başvuru Kanalı</label>
+   <select id="başvuru-kanal" name="başvuru-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+     <div class="form-group col-md-4">
+      <label for="inputState">başvuru Rolü</label>
+      <select id="başvuruytk-rol" name="başvuruytk-rol" class="form-control">
+        <option selected disabled>Bir Yetkili Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+         <div class="form-group col-md-4">
+      <label for="inputState">başvuru Log Kanalı</label>
+   <select id="başvuru-log" name="başvuru-log" class="form-control">
+        <option selected disabled>Başvuru Log Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+         <div class="form-group col-md-4">
+      <label for="inputState">başvuru giden kanal</label>
+   <select id="başvuru-giden" name="başvuru-giden" class="form-control">
+        <option selected disabled>Başvuru giden Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+
+      <div class="form-group col-md-2">
+      <label for="inputZip">Soru 1 Ayarla</label>
+        </center>
+
+      <input type="letter" class="form-control" name="başvurusoru-1" id="başvurusoru-1" min="<%= sw.memberCount + 1 %>" placeholder="1. Soruyu Belirleyiniz.">
+    </div>
+  
+        <div class="form-group col-md-2">
+      <label for="inputZip">Soru 2 Ayarla</label>
+        </center>
+
+      <input type="letter" class="form-control" name="başvurusoru-2" id="başvurusoru-2" min="<%= sw.memberCount + 1 %>" placeholder="2. Soruyu Belirleyiniz.">
+    </div>
+          <div class="form-group col-md-2">
+      <label for="inputZip">Soru 3 Ayarla</label>
+        </center>
+
+      <input type="letter" class="form-control" name="başvurusoru-3" id="başvurusoru-3" min="<%= sw.memberCount + 1 %>" placeholder="3. Soruyu Belirleyiniz.">
+    </div>
+  
+          <div class="form-group col-md-2">
+      <label for="inputZip">Soru 4 Ayarla</label>
+        </center>
+
+      <input type="letter" class="form-control" name="başvurusoru-4" id="başvurusoru-4" min="<%= sw.memberCount + 1 %>" placeholder="4. Soruyu Belirleyiniz.">
+    </div>
+  
+          <div class="form-group col-md-2">
+      <label for="inputZip">Soru 5 Ayarla</label>
+        </center>
+
+      <input type="letter" class="form-control" name="başvurusoru-5" id="başvurusoru-5" min="<%= sw.memberCount + 1 %>" placeholder="5. Soruyu Belirleyiniz.">
+    </div>
+     
+     
+</div>
+
+</div>
+  </div>
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ jail Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">jail kanalını ayarladıktan sonra !jail gönder yapınız.</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#jail" role="button" aria-expanded="false" aria-controls="jail" href="#jail" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+<div class="collapse" id="jail">
+   <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputState">jail Kanalı</label>
+   <select id="jail-kanal" name="jail-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+          </div>
+     <div class="form-group col-md-4">
+      <label for="inputState">Jail yetkili Rolü</label>
+      <select id="jailytk-rol" name="jailytk-rol" class="form-control">
+        <option selected disabled>Bir Yetkili Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+  
+    </div>
+          <div class="form-group col-md-4">
+      <label for="inputState">Jail yetkili Rolü</label>
+      <select id="jail-rol" name="jail-rol" class="form-control">
+        <option selected disabled>Bir Yetkili Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+  
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+  <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ Sayaç Ayarla</p> <p style="color: #fff; margin-top: -20px;  font-family: 'Quicksand'; font-size: 20px;">Sunucunuza girip çıkanları belirli bir kanala sayar.</p>
+    </div>
+  <div class="col-md-4">
+<a data-toggle="collapse" href="#sayac" role="button" aria-expanded="false" aria-controls="sayac" href="#sayac" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div>  
+</div>
+<div class="collapse" id="sayac" style="margin-left: 300px;">
+  <div class="form-row">
+  <div class="form-group col-md-4">
+  <center>
+
+      <label for="inputState">Sayaç Kanalı</label>
+
+      <select id="sayac-kanal" name="sayac-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Belirle!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+     <div class="form-group col-md-2">
+      <label for="inputZip">Sayaç Hedefi</label>
+        </center>
+
+      <input type="number" class="form-control" name="sayac-hedef" id="sayac-hedef" min="<%= sw.memberCount + 1 %>" placeholder="Bir hedef belirle">
+    </div>
+  </div>
+  </div>
+</div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ ticket Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">ticket kanalını ayarladıktan sonra !ticket gönder yapınız.</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#ticket" role="button" aria-expanded="false" aria-controls="ticket" href="#ticket" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+<div class="collapse" id="ticket">
+   <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputState">ticket Kanalı</label>
+   <select id="ticket-kanal" name="ticket-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ Duyuru Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">Duyuru kanalını ayarladıktan sonra !Duyuru gönder yapınız.</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#Duyuru" role="button" aria-expanded="false" aria-controls="Duyuru" href="#Duyuru" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+
+<div class="collapse" id="Duyuru">
+   <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Duyuru Kanalı</label>
+   <select id="duyuru-kanal" name="duyuru-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+     
+  </div>
+  
+  
+</div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ kayıt Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">kayıt sunucunuza girenlere otomatik olarak rol verir.</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#kayıt" role="button" aria-expanded="false" aria-controls="kayıt" href="#kayıt" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+<div class="collapse" id="kayıt">
+   <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputState">kayıt log</label>
+   <select id="kayıt-kanal" name="kayıt-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+     <div class="form-group col-md-4">
+      <label for="inputState">Erkek kayıt Rolü</label>
+      <select id="erkek-rol" name="erkek-rol" class="form-control">
+        <option selected disabled>Bir  Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+     <div class="form-group col-md-4">
+      <label for="inputState">kız kayıt Rolü</label>
+      <select id="kız-rol" name="kız-rol" class="form-control">
+        <option selected disabled>Bir  Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+	
+	     <div class="form-group col-md-4">
+      <label for="inputState">kayıt Yetkili Rolü</label>
+      <select id="kayıtyetkili-rol" name="kayıtyetkili-rol" class="form-control">
+        <option selected disabled>Bir  Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+	
+		     <div class="form-group col-md-4">
+      <label for="inputState">kayıtsız Rolü</label>
+      <select id="kayıtsız-rol" name="kayıtsız-rol" class="form-control">
+        <option selected disabled>Bir  Rolü Seç!</option>
+        <% sw.roles.cache.filter(a => !a.managed).filter(a => a.name !== "@everyone").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+
+     <div class="form-group col-md-2">
+      <label for="inputZip">Tag Ayar</label>
+        </center>
+
+      <input type="letter" class="form-control" name="tag-ayar" id="tag-ayar" min="<%= sw.memberCount + 1 %>" placeholder="Bir Tag belirle">
+    </div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ Görsel Ayarla</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">Ayarlanan kanala sadece görsel atılabilir.</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#Görsel" role="button" aria-expanded="false" aria-controls="Görsel" href="#Görsel" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+  <div class="collapse" id="Görsel">
+   <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Görsel Kanalı</label>
+   <select id="görsel-kanal" name="görsel-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Seç!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+  
+</div>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+<div class="col-md-8">
+   <p style="color: #0561ff; margin-top: 80px;font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ Youtube Sistemi</p> <p style="color: #fff; margin-top: -20px; font-family: 'Quicksand'; font-size: 20px;">Youtube Abone Log & Bildirim Sistemi</p>
+    </div> 
+<div class="col-md-4">
+<a data-toggle="collapse" href="#yt" role="button" aria-expanded="false" aria-controls="yt" href="#yt" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div> 
+ </div>
+ <div class="collapse" id="yt">
+    <div class="form-row">
+ 
+     <div class="form-group col-md-4">
+       <label for="inputState">YT Sayaç Log (30 dakkikada bir loga atmaktadır.)</label>
+    <select id="yt-log" name="yt-log" class="form-control">
+         <option selected disabled>Bir Kanal Seç!</option>
+         <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+    <option value="<%=id.id%>"><%=id.name%></option>
+         <% }) %>
+       </select>
+     </div>
+ 
+ 
+     <div class="form-group col-md-4">
+         <label for="inputState">YT Bildirim </label>
+      <select id="yt-bildirim" name="yt-bildirim" class="form-control">
+           <option selected disabled>Bir Kanal Seç!</option>
+           <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+      <option value="<%=id.id%>"><%=id.name%></option>
+           <% }) %>
+         </select>
+       </div>
+ 
+      <div class="form-group col-md-2">
+       <label for="inputZip">YouTube İD Ayarla</label>
+         </center>
+ 
+       <input type="letter" class="form-control" name="ytid" id="ytid" min="<%= sw.memberCount + 1 %>" placeholder="Bir Tag belirle">
+     </div>
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-8">
+  <p style="color: #0561ff; margin-top: 80px; font-family: 'Quicksand'; font-size: 25px;"><i class="fas fa-user-tag"></i>
+ HG-BB Ayarla</p> <p style="color: #fff; margin-top: -20px;font-family: 'Quicksand'; font-size: 20px;">Hoşgeldin görüşürüz sunucuya gelenleri çıkanları belirlene kanala atar.</p>
+    </div>
+<div class="col-md-4">
+<a data-toggle="collapse" href="#hgbb" role="button" aria-expanded="false" aria-controls="hgbb" href="#hgbb" type="button" style="text-align: center; line-height:44px; font-family: 'Quicksand', black; font-size: 18px; color: #fff;" class="div hot"> <i class="fas fa-cogs"></i> AYARLA</a>
+    </div>
+  </div>
+  </div>
+<div class="collapse" id="hgbb">
+ 
+  <div class="form-row"  style="margin-left: 300px;">
+  <div class="form-group col-md-4">
+      <label for="inputState">HGBB Kanalı</label>
+      <select id="hgbb-kanal" name="hgbb-kanal" class="form-control">
+        <option selected disabled>Bir Kanal Belirle!</option>
+        <% sw.channels.cache.filter(a => a.type === "text").map(id => { %>
+   <option value="<%=id.id%>"><%=id.name%></option>
+        <% }) %>
+      </select>
+    </div>
+</div>
+  
+  </div>
+   <button type="submit" id="testbutton"></button>
+<br>
+
+
+
+</form>
+<br>
+
+<style>
+
+#testbutton {
+  width: 150px;
+  height:50px;
+  border-radius:180px;
+  position:relative;
+  left:calc(50% - 75px);
+  top:calc(10% - 25px);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  cursor:pointer;
+  line-height:12px;
+}
+
+#testbutton:before {
+  content:'';
+  z-index:1;
+  position:absolute;
+  display:block;
+  width:80%;
+  height:70%;
+  top:15%;
+  left:10%;
+  transition: 0.3s opacity ease-in-out;
+  filter:blur(15px);
+  opacity:0;
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+}
+
+#testbutton:hover:before {
+  opacity:1;
+  transition: 0.3s opacity ease-in-out;
+  filter:blur(25px);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);  
+}
+
+#testbutton:after {
+  content:'Kaydet';
+  text-align:center;
+  line-height:40px;
+  font-size:18px;
+  color:rgba(235,235,235,1);
+  font-weight:bold;
+  z-index:5;
+  position:absolute;
+  display:block;
+  border-radius:180px;
+  width:92%;
+  height:80%;
+  top:10%;
+  left:4%;  
+}
+
+.night  { position: relative; 
+	        background:linear-gradient( to bottom right,rgba(63,81,181,1) 0%, rgba(171,71,188 ,1) 70%);
+	        box-shadow: 1px 1px 30px rgba(81,45,168 ,1);}
+
+
+.div     { width: 200px; height: 44px; border-radius: 6px; }
+
+.hot    { position: relative; 
+	        background:linear-gradient( to top right, rgb(39,42,246) 0%, rgb(39,42,246) 100%);.
+</style>
+
+<%- include('.././ek/footer.ejs') %>

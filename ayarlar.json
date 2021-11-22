@@ -1,7 +1,7 @@
 {
    
     "prefix": "!",
-  "mongourl": "mongodb+srv://umefek:UmutEfe1801@umef-ek.mgqob.mongodb.net/umefekdatabase?retryWrites=true&w=majority",
+  "mongourl": "mongo url",
   "sahip": "384683153769496586",
     "goldlog":"882659273623089173",
   "girdiçıktılog": "882659273623089173"

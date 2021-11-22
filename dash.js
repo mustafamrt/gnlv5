@@ -331,7 +331,6 @@ if(!req.user) return res.redirect("/hata?type=giris")
         
       }
       
-      ///////////////////
       if(ayarlar["başvuru-giden"]) {
       await client.db.set(`basvuruk_${id}`, ayarlar["başvuru-giden"])
       }else{
@@ -343,7 +342,48 @@ if(!req.user) return res.redirect("/hata?type=giris")
         
         
       } 
+      
+      
+      ////////youtube bot
+      
+            if(ayarlar["yt-log"]) {
+      await client.db.set(`ytlog_${id}`, ayarlar["yt-log"])
+      }else{
+        try {
+        await client.db.delete(`ytlog_${id}`)
+     } catch(err) {
+       
+     }
+        
+        
+      } 
     
+      
+                  if(ayarlar["ytid"]) {
+      await client.db.set(`kanalid_${id}`, ayarlar["ytid"])
+      }else{
+        try {
+        await client.db.delete(`kanalid_${id}`)
+     } catch(err) {
+       
+     }
+        
+        
+      } 
+    
+      
+                        if(ayarlar["yt-bildirim"]) {
+      await client.db.set(`ytbildirim_${id}`, ayarlar["yt-bildirim"])
+      }else{
+        try {
+        await client.db.delete(`ytbildirim_${id}`)
+     } catch(err) {
+       
+     }
+        
+        
+      } 
+      
       
       ////////////kayıt 
       

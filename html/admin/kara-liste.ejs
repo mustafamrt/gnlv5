@@ -1,0 +1,129 @@
+<%- include('ek/header', {bot, user, path}) %>
+
+<center>
+      
+              <div class="card-content">
+    <main><div class="container">
+  <div class="row">
+    <div class="col s8 offset-s2">
+
+      <div class="card">
+        <div class="card-login-splash">
+          <div class="wrapper">
+          </div>
+
+        
+        </div>
+        <div class="card-content">
+          <center><img class="card-image" src="https://image.flaticon.com/icons/png/512/2631/2631450.png" style="width: 200px;"></center>
+          <span class="card-title">İşlem: Karaliste'ye kullanıcı ekle!</span>
+          <p>
+            NOT: Karalisteye alınacak kişinin ID'sini yazınız.
+          </p>
+          
+          
+          <form method="post" action="/panel/kara-add">
+            <div class="input-field">
+              <input type="text" class="form-control" name="kul-id" placeholder="Discord İD">
+
+            </div>
+            <div>
+              <input style="margin-top: 15px;" class="btn btn-primary" type="submit" value="Karalisteye Ekle">
+            </div>
+            <br><br>
+
+          </form>
+          
+          
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+      
+</center>
+   
+
+    </main>
+
+
+<center>
+      
+              <div class="card-content">
+    <main><div class="container">
+  <div class="row">
+    <div class="col s8 offset-s2">
+
+      <div class="card">
+        <div class="card-login-splash">
+          <div class="wrapper">
+          </div>
+
+        
+        </div>
+        <div class="card-content">
+          <center><img class="card-image" src="https://image.flaticon.com/icons/png/512/2631/2631450.png" style="width: 200px;"></center>
+          <span class="card-title">İşlem: Karaliste'ye kullanıcı çıkar!</span>
+          <p>
+            NOT: Karalisteden Çıkarılacak kişinin ID'sini yazınız.
+          </p>
+          
+          
+          <form method="post" action="/panel/kara-remove">
+            <div class="input-field">
+              <input type="text" class="form-control" name="kul-id" placeholder="Discord İD">
+
+            </div>
+            <div>
+              <input style="margin-top: 15px;" class="btn btn-primary" type="submit" value="Karalisteye Çıkar">
+            </div>
+            <br><br>
+
+          </form>
+          
+          
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+      
+</center>
+   
+
+    </main>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+
+<!-- External libraries -->
+
+<!-- jqvmap -->
+<script type="text/javascript" src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/jquery.vmap.min.js?0"></script>
+<script type="text/javascript" src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/jquery.vmap.world.js?0" charset="utf-8"></script>
+<script type="text/javascript" src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/jquery.vmap.sampledata.js?0"></script>
+
+<!-- ChartJS -->
+<script type="text/javascript" src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/Chart.js?0"></script>
+<script type="text/javascript" src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/Chart.Financial.js?0"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+<script src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/imagesloaded.pkgd.min.js?0"></script>
+<script src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/masonry.pkgd.min.js?0"></script>
+
+
+<!-- Initialization script -->
+<script src="//cdn.shopify.com/s/files/1/1775/8583/t/1/assets/dashboard.min.js?0"></script>
+  </body>
+</html>

@@ -6,7 +6,7 @@ const { Client, Util } = require('discord.js');
 const ayarlar = require('./ayarlar.json');
 const client = new Discord.Client({disableMentions:"everyone",ws: { intents: new Discord.Intents(Discord.Intents.ALL) }})
 const { Database } = require("quickmongo");
-const db = new Database("mongodb+srv://umefek:UmutEfe1801@umef-ek.mgqob.mongodb.net/umefekdatabase?retryWrites=true&w=majority");
+const db = new Database("Mongo İD");
 require('./util/eventloader.js')(client);
 
 const ayarla = require('./ayarlar.json');
@@ -20,7 +20,7 @@ require("moment-duration-format");
 
 //----------- AYARLAMALAR ------------
 client.ayarlar = {
-	token: "ODgxODkxODI1ODY5MjkxNTMy.YSzbxA.qIjUgrys4M79aGPRStKN4ncaG5U",
+	token: "ODgxODkxODI1ODY5MjkxNTMy.YSzbxA.laVaNH_SV0Eco0cczz9e5z9gigI",
 	gelistirici:["384683153769496586","844955462586859560"],
 	oauthSecret: "oiypGXZLPXHRuu1y-B7cLE2xs74e1Fhg",
 	callbackURL: "https://narcoscode.tk/callback",
@@ -147,6 +147,59 @@ client.on('guildDelete', guild => {
 
 
 
+///////////////////////Youtube Bot log
+client.on("message", message => {
+let ytlog = db.fetch(`ytlog_${message.guild.id}`)
+let kanalid = db.fetch(`kanalid_${message.guild.id}`) 
+
+const ytch = require('yt-channel-info')
+
+let id = kanalid
+let type = "user"
+if(id) {
+    ytch.getChannelInfo(id, type).then((response) => { 
+
+
+        setInterval(() => {
+            client.channels.cache.get(ytlog).send("Şu anda **"+response.subscriberCount+" **Abone var")
+            }, 1800000)
+
+          
+
+    })
+}
+
+
+
+///////////////////////Youtube Bot bildirim
+
+
+const nrc = new (require("rss-parser"))();
+
+
+function handleUploads() {
+    if (db.fetch(`postedVideos`) === null) db.set(`postedVideos`, []);
+    setInterval(() => {
+        nrc.parseURL(`https://www.youtube.com/feeds/videos.xml?channel_id=${kanalid}`)
+        .then(nrc1 => {
+            if (db.fetch(`postedVideos`).includes(nrc1.items[0].link)) return;
+            else {
+                db.set(`videoData`, nrc1.items[0]);
+                db.push("postedVideos", nrc1.items[0].link);
+                let nrcvideo = db.fetch(`videoData`);
+                let channel = db.fetch(`ytbildirim_${message.guild.id}`)
+                if (!channel) return;
+                let message = "Hey `@everyone`, **{author}** Yeni Video Yükledi: **{title}**!\n{url}"
+                    .replace(/{author}/g, nrcvideo.author)
+                    .replace(/{title}/g, Discord.Util.escapeMarkdown(nrcvideo.title))
+                    .replace(/{url}/g, nrcvideo.link);
+                channel.send(message);
+            }
+        });
+    }, 30000);
+}
+
+});
 
 
 

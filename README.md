@@ -10,6 +10,6 @@ yapımcılar;
 
 **MustafaMert#3900**
 
-**UmutICE ᵘᵐᵘᵗᶦᶜᵉ#9495**
+**UmutICE#9495**
 
 Narcos Code Sunar...
