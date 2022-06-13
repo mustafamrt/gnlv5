@@ -1,12 +1,12 @@
 {
   "name": "NarcosCode",
   "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "NullMan, TwoPage",
+  "author": "MustafaMert",
   "dependencies": {
     "@discordjs/opus": "^0.5.3",
     "axios": "^0.21.1",
